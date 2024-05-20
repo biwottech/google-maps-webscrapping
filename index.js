@@ -10,7 +10,6 @@ async function searchGoogleMaps(query) {
     try {
 
         puppeteerExtra.use(stealthPlugin());
-
         const browser = await puppeteerExtra.launch({
             headless: false,
             // headless: "new",
@@ -21,10 +20,6 @@ async function searchGoogleMaps(query) {
             // executablePath: "", // your path here
         });
 
-
-
-
-
         // const browser = await puppeteerExtra.launch({
         //   args: chromium.args,
         //   defaultViewport: chromium.defaultViewport,
@@ -34,8 +29,8 @@ async function searchGoogleMaps(query) {
         // });
 
         const page = await browser.newPage();
-        const recorder = new PuppeteerScreenRecorder(page);
-        await recorder.start('./report/video/simple.mp4'); // supports extension - mp4, avi, webm and mov
+        // const recorder = new PuppeteerScreenRecorder(page);
+        // await recorder.start('./report/video/simple.mp4'); // supports extension - mp4, avi, webm and mov
 
         try {
             await page.goto(`https://www.google.com/maps/search/${query.split(" ").join("+")}?hl=en&entry=ttu`);
